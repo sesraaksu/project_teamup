@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import logo from '../assets/teamup.png';
 import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
+import { Authentication } from '../shared/AuthenticationContext';
 
 class TopBar extends Component {
-
-    state = {
-        isLoggedIn: true,
-        username: 'user1'
-      };
+  static contextType = Authentication;
 
   render() {
     const { t } = this.props;
-
-    const { isLoggedIn, username } = this.state;
+    const { state, onLogoutSuccess } = this.context;
+    const { isLoggedIn, username } = state;
 
     let links = (
       <ul className="navbar-nav ms-auto">
@@ -38,7 +35,9 @@ class TopBar extends Component {
               {username}
             </Link>
           </li>
-          <li className="nav-link">{t('Logout')}</li>
+          <li className="nav-link" onClick={onLogoutSuccess} style={{ cursor: 'pointer' }}>
+            {t('Logout')}
+          </li>
         </ul>
       );
     }
