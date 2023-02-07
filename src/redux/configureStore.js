@@ -1,8 +1,11 @@
 import { createStore } from 'redux';
 import authReducer from './authReducer';
+import SecureLS from 'secure-ls';
 
-const configureStore = () => {
-  const teamAuth = localStorage.getItem('team-auth');
+const secureLs = new SecureLS();
+
+const getStateFromStorage = () => {
+  const teamAuth = secureLs.get('team-auth');
 
   let stateInLocalStorage = {
     isLoggedIn: false,
@@ -13,15 +16,24 @@ const configureStore = () => {
   };
 
   if (teamAuth) {
-    try {
-      stateInLocalStorage = JSON.parse(teamAuth);
-    } catch (error) {}
+    return teamAuth;
   }
 
-  const store = createStore(authReducer, stateInLocalStorage, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+  return stateInLocalStorage;
+};
+
+const updateStateInStorage = newState => {
+  secureLs.set('team-auth', newState);
+};
+
+const configureStore = () => {
+  const store = createStore(authReducer, 
+    getStateFromStorage(), 
+    window.__REDUX_DEVTOOLS_EXTENSION__ && 
+    window.__REDUX_DEVTOOLS_EXTENSION__());
 
   store.subscribe(() => {
-    localStorage.setItem('team-auth', JSON.stringify(store.getState()));
+    updateStateInStorage(store.getState());
   });
 
   return store;
