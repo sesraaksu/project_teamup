@@ -9,7 +9,7 @@ const TopBar = props => {
   const { t, username, isLoggedIn, onLogoutSuccess } = props;
 
   let links = (
-    <ul className="navbar-nav ml-auto">
+    <ul className="navbar-nav ms-auto">
       <li>
         <Link className="nav-link" to="/login">
           {t('Login')}
@@ -24,7 +24,7 @@ const TopBar = props => {
   );
   if (isLoggedIn) {
     links = (
-      <ul className="navbar-nav ml-auto">
+      <ul className="navbar-nav ms-auto">
         <li>
           <Link className="nav-link" to={`/user/${username}`}>
             {username}
