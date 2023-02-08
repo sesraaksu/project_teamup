@@ -50,7 +50,7 @@ const UserList = () => {
         </button>
       )}
       {last === false && (
-        <button className="btn btn-sm btn-light float-right" onClick={onClickNext}>
+        <button className="btn btn-sm btn-light float-end" onClick={onClickNext}>
           {t('Next')}
         </button>
       )}
