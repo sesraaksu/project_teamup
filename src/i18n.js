@@ -19,7 +19,11 @@ i18n.use(initReactI18next).init({
         Home: 'Home',
         'Load Failure': 'Load Failure',
         'User not found': 'User not found',
-        'Unauthorized': 'Unauthorized'
+        'Unauthorized': 'Unauthorized',
+        Edit: 'Edit',
+        'Change Display Name': 'Change Display Name',
+        Save: 'Save',
+        Cancel: 'Cancel'
       }
     },
     tr: {
@@ -38,7 +42,11 @@ i18n.use(initReactI18next).init({
         Home: 'Anasayfa',
         'Load Failure': 'Liste alınamadı',
         'User not found': 'Kullanıcı bulunamadı',
-        'Unauthorized': 'Erişim sağlanamadı'
+        'Unauthorized': 'Erişim sağlanamadı',
+        Edit: 'Düzenle',
+        'Change Display Name': 'Görünür İsminizi Değiştirin',
+        Save: 'Kaydet',
+        Cancel: 'İptal Et'
       }
     }
   },
