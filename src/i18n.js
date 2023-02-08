@@ -17,7 +17,9 @@ i18n.use(initReactI18next).init({
         Next: 'next >',
         Previous: '< previous',
         Home: 'Home',
-        'Load Failure': 'Load Failure'
+        'Load Failure': 'Load Failure',
+        'User not found': 'User not found',
+        'Unauthorized': 'Unauthorized'
       }
     },
     tr: {
@@ -34,7 +36,9 @@ i18n.use(initReactI18next).init({
         Next: 'sonraki >',
         Previous: '< önceki',
         Home: 'Anasayfa',
-        'Load Failure': 'Liste alınamadı'
+        'Load Failure': 'Liste alınamadı',
+        'User not found': 'Kullanıcı bulunamadı',
+        'Unauthorized': 'Erişim sağlanamadı'
       }
     }
   },
