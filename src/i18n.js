@@ -16,7 +16,8 @@ i18n.use(initReactI18next).init({
         Users: 'Users',
         Next: 'next >',
         Previous: '< previous',
-        Home: 'Home'
+        Home: 'Home',
+        'Load Failure': 'Load Failure'
       }
     },
     tr: {
@@ -32,7 +33,8 @@ i18n.use(initReactI18next).init({
         Users: 'Kullanıcılar',
         Next: 'sonraki >',
         Previous: '< önceki',
-        Home: 'Anasayfa'
+        Home: 'Anasayfa',
+        'Load Failure': 'Liste alınamadı'
       }
     }
   },
