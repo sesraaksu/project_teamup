@@ -13,11 +13,17 @@ const ProfileCard = props => {
   const [updatedDisplayName, setUpdatedDisplayName] = useState();
   const { username: loggedInUsername } = useSelector(store => ({ username: store.username }));
   const routeParams = useParams();
+  const pathUsername = routeParams.username;
   const [user, setUser] = useState({});
+  const [editable, setEditable] = useState(false);
 
   useEffect(() => {
     setUser(props.user);
   }, [props.user]);
+
+  useEffect(() => {
+    setEditable(pathUsername === loggedInUsername);
+  }, [pathUsername, loggedInUsername]);
 
   const { username, displayName, image } = user;
   const { t } = useTranslation();
@@ -43,12 +49,6 @@ const ProfileCard = props => {
 
   const pendingApiCall = useApiProgress('put', '/api/1.0/users/' + username);
 
-  const pathUsername = routeParams.username;
-  let message = 'We cannot edit';
-  if (pathUsername === loggedInUsername) {
-    message = 'We can edit';
-  }
-
   return (
     <div className="card text-center">
       <div className="card-header">
@@ -60,10 +60,12 @@ const ProfileCard = props => {
             <h3>
               {displayName}@{username}
             </h3>
-            <button className="btn btn-success d-inline-flex mt-2" onClick={() => setInEditMode(true)}>
-              <i className="material-icons">edit</i>
-              {t('Edit')}
-            </button>
+            {editable && (
+              <button className="btn btn-success d-inline-flex mt-2" onClick={() => setInEditMode(true)}>
+                <i className="material-icons">edit</i>
+                {t('Edit')}
+              </button>
+            )}
           </>
         )}
         {inEditMode && (
