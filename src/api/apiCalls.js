@@ -36,3 +36,7 @@ export const updateUser = (username, body) => {
 export const postTeam = team => {
   return axios.post('/api/1.0/teames', team);
 };
+
+export const getTeames = () => {
+  return axios.get('/api/1.0/teames');
+};
