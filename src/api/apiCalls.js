@@ -37,6 +37,6 @@ export const postTeam = team => {
   return axios.post('/api/1.0/teames', team);
 };
 
-export const getTeames = () => {
-  return axios.get('/api/1.0/teames');
+export const getTeames = (page = 0) => {
+  return axios.get('/api/1.0/teames?page=' + page);
 };

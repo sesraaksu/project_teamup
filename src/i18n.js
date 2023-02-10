@@ -25,7 +25,8 @@ i18n.use(initReactI18next).init({
         Save: 'Save',
         Cancel: 'Cancel',
         'My Profile': 'My Profile',
-        'There are no teames': 'There are no teames'
+        'There are no teames': 'There are no teames',
+        'Load old teames': 'Load old teames'
       }
     },
     tr: {
@@ -50,7 +51,8 @@ i18n.use(initReactI18next).init({
         Save: 'Kaydet',
         Cancel: 'İptal Et',
         'My Profile': 'Hesabım',
-        'There are no teames': 'Teames bulunamadı'
+        'There are no teames': 'Teames bulunamadı',
+        'Load old teames': 'Geçmiş Teamleri getir'
       }
     }
   },
