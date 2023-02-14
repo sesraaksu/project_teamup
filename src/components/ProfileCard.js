@@ -127,7 +127,7 @@ const ProfileCard = props => {
               }}
               error={displayNameError}
             />
-            <Input className="center mt-3" type="file" onChange={onChangeFile} error={imageError}/>
+            <Input className="center" type="file" onChange={onChangeFile} error={imageError}/>
             <div>
               <ButtonWithProgress
                 className="btn btn-primary d-inline-flex mt-3"
