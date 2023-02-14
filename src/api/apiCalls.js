@@ -37,6 +37,7 @@ export const postTeam = team => {
   return axios.post('/api/1.0/teames', team);
 };
 
-export const getTeames = (page = 0) => {
-  return axios.get('/api/1.0/teames?page=' + page);
+export const getTeames = (username, page = 0) => {
+  const path = username ? `/api/1.0/users/${username}/teames?page=` : '/api/1.0/teames?page=';
+  return axios.get(path + page);
 };
