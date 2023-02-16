@@ -41,3 +41,17 @@ export const getTeames = (username, page = 0) => {
   const path = username ? `/api/1.0/users/${username}/teames?page=` : '/api/1.0/teames?page=';
   return axios.get(path + page);
 };
+
+export const getOldTeames = (id, username) => {
+  const path = username ? `/api/1.0/users/${username}/teames/${id}` : `/api/1.0/teames/${id}`;
+  return axios.get(path);
+};
+
+export const getNewTeamCount = (id, username) => {
+  const path = username ? `/api/1.0/users/${username}/teames/${id}?count=true` : `/api/1.0/teames/${id}?count=true`;
+  return axios.get(path);
+};
+
+export const getNewTeames = id => {
+  return axios.get(`/api/1.0/teames/${id}?direction=after`);
+};
