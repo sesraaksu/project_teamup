@@ -28,7 +28,10 @@ const TeamView = props => {
       <div className="ps-5">{content}</div>
       {fileAttachment && (
         <div className="ps-5">
-          <img className="img-fluid" src={'images/' + fileAttachment.name} alt={content} />
+          {fileAttachment.fileType.startsWith('image') && (
+            <img className="img-fluid" src={'images/attachments/' + fileAttachment.name} alt={content} />
+          )}
+          {!fileAttachment.fileType.startsWith('image') && <strong>Team has unknown attachment</strong>}
         </div>
       )}
     </div>
