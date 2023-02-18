@@ -33,7 +33,7 @@ const TeamFeed = () => {
       const response = await getNewTeamCount(firstTeamId, username);
       setNewTeamCount(response.data.count);
     };
-    let looper = setInterval(getCount, 1000);
+    let looper = setInterval(getCount, 5000);
     return function cleanup() {
       clearInterval(looper);
     };

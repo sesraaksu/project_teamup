@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 const TeamView = props => {
   const { team } = props;
-  const { user, content, timestamp } = team;
+  const { user, content, timestamp, fileAttachment } = team;
   const { username, displayName, image } = user;
   const { i18n } = useTranslation();
   const formatted = format(timestamp, i18n.language);
@@ -26,6 +26,11 @@ const TeamView = props => {
         </div>
       </div>
       <div className="ps-5">{content}</div>
+      {fileAttachment && (
+        <div className="ps-5">
+          <img className="img-fluid" src={'images/' + fileAttachment.name} alt={content} />
+        </div>
+      )}
     </div>
   );
 };

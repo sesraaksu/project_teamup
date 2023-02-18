@@ -15,6 +15,7 @@ const TeamSubmit = () => {
   const [team, setTeam] = useState('');
   const [errors, setErrors] = useState({});
   const [newImage, setNewImage] = useState();
+  const [attachmentId, setAttachmentId] = useState();
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -22,6 +23,7 @@ const TeamSubmit = () => {
       setTeam('');
       setErrors({});
       setNewImage();
+      setAttachmentId();
     }
   }, [focused]);
 
@@ -35,7 +37,8 @@ const TeamSubmit = () => {
 
   const onClickTeamup = async () => {
     const body = {
-      content: team
+      content: team,
+      attachmentId: attachmentId
     };
 
     try {
@@ -64,7 +67,8 @@ const TeamSubmit = () => {
   const uploadFile = async file => {
     const attachment = new FormData();
     attachment.append('file', file);
-    await postTeamAttachment(attachment);
+    const response = await postTeamAttachment(attachment);
+    setAttachmentId(response.data.id);
   };
 
   let textAreaClass = 'form-control';
