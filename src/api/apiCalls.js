@@ -45,3 +45,7 @@ export const getNewTeames = (id, username) => {
   const path = username ? `/api/1.0/users/${username}/teames/${id}?direction=after` : `/api/1.0/teames/${id}?direction=after`;
   return axios.get(path);
 };
+
+export const postTeamAttachment = attachment => {
+  return axios.post('/api/1.0/team-attachments', attachment);
+};
