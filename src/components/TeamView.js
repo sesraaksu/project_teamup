@@ -3,13 +3,23 @@ import ProfileImageWithDefault from './ProfileImageWithDefault';
 import { Link } from 'react-router-dom';
 import { format } from 'timeago.js';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { deleteTeam } from '../api/apiCalls';
 
 const TeamView = props => {
-  const { team } = props;
-  const { user, content, timestamp, fileAttachment } = team;
+  const loggedInUser = useSelector(store => store.username);
+  const { team, onDeleteTeam } = props;
+  const { user, content, timestamp, fileAttachment, id } = team;
   const { username, displayName, image } = user;
   const { i18n } = useTranslation();
+
+  const onClickDelete = async () => {
+    await deleteTeam(id);
+    onDeleteTeam(id);
+  };
+
   const formatted = format(timestamp, i18n.language);
+  const ownedByLoggedInUser = loggedInUser === username;
 
   return (
     <div className="card p-1">
@@ -24,6 +34,11 @@ const TeamView = props => {
             <span>{formatted}</span>
           </Link>
         </div>
+        {ownedByLoggedInUser && (
+          <button className="btn btn-delete-link btn-sm" onClick={onClickDelete}>
+            <i className="material-icons">delete_outline</i>
+          </button>
+        )}
       </div>
       <div className="ps-5">{content}</div>
       {fileAttachment && (

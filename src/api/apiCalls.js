@@ -49,3 +49,7 @@ export const getNewTeames = (id, username) => {
 export const postTeamAttachment = attachment => {
   return axios.post('/api/1.0/team-attachments', attachment);
 };
+
+export const deleteTeam = id => {
+  return axios.delete(`/api/1.0/teames/${id}`);
+};

@@ -67,6 +67,13 @@ const TeamFeed = () => {
     setNewTeamCount(0);
   };
 
+  const onDeleteTeamSuccess = id => {
+    setTeamPage(previousTeamPage => ({
+      ...previousTeamPage,
+      content: previousTeamPage.content.filter(team => team.id !== id)
+    }));
+  };
+
   const { content, last } = teamPage;
 
   if (content.length === 0) {
@@ -85,7 +92,7 @@ const TeamFeed = () => {
         </div>
       )}
       {content.map(team => {
-        return <TeamView key={team.id} team={team} />;
+        return <TeamView key={team.id} team={team} onDeleteHoax={onDeleteTeamSuccess} />;
       })}
       {!last && (
         <div

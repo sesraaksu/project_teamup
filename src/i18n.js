@@ -28,7 +28,9 @@ i18n.use(initReactI18next).init({
         'My Profile': 'My Profile',
         'There are no teames': 'There are no teames',
         'Load old teames': 'Load old teames',
-        'There are new teames': 'There are new teames'
+        'There are new teames': 'There are new teames',
+        'Delete Team': 'Delete Team',
+        'Are you sure to delete Team?': 'Are you sure to delete team?'
       }
     },
     tr: {
@@ -55,7 +57,9 @@ i18n.use(initReactI18next).init({
         'My Profile': 'Hesabım',
         'There are no teames': 'Teames bulunamadı',
         'Load old teames': 'Geçmiş Teamleri getir',
-        'There are new teames': 'Yeni Teamler var'
+        'There are new teames': 'Yeni Teamler var',
+        'Delete Team': `Team'i sil`,
+        'Are you sure to delete Team?': `Team'i silmek istedğinizden emin misiniz?`
       }
     }
   },
