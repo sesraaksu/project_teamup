@@ -30,7 +30,9 @@ i18n.use(initReactI18next).init({
         'Load old teames': 'Load old teames',
         'There are new teames': 'There are new teames',
         'Delete Team': 'Delete Team',
-        'Are you sure to delete Team?': 'Are you sure to delete team?'
+        'Are you sure to delete Team?': 'Are you sure to delete team?',
+        'Delete My Account': 'Delete My Account',
+        'Are you sure to delete your account?': 'Are you sure to delete your account?'
       }
     },
     tr: {
@@ -59,7 +61,10 @@ i18n.use(initReactI18next).init({
         'Load old teames': 'Geçmiş Teamleri getir',
         'There are new teames': 'Yeni Teamler var',
         'Delete Team': `Team'i sil`,
-        'Are you sure to delete Team?': `Team'i silmek istedğinizden emin misiniz?`
+        'Are you sure to delete Team?': `Team'i silmek istedğinizden emin misiniz?`,
+        'Delete My Account': 'Hesabımı Sil',
+        'Are you sure to delete your account?': 'Hesabınızı silmek istediğinizden emin misiniz?'
+      
       }
     }
   },

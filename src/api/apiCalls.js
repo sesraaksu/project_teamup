@@ -53,3 +53,7 @@ export const postTeamAttachment = attachment => {
 export const deleteTeam = id => {
   return axios.delete(`/api/1.0/teames/${id}`);
 };
+
+export const deleteUser = username => {
+  return axios.delete(`/api/1.0/users/${username}`);
+};

@@ -64,6 +64,7 @@ const TeamView = props => {
       </div>
       <Modal
         visible={modalVisible}
+        title={t('Delete Team')}
         onClickCancel={onClickCancel}
         onClickOk={onClickDelete}
         message={
@@ -75,6 +76,7 @@ const TeamView = props => {
           </div>
         }
         pendingApiCall={pendingApiCall}
+        okButton={t('Delete Team')}
       />
     </>
   );
