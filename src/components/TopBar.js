@@ -85,7 +85,7 @@ const TopBar = props => {
     <div className="shadow-sm bg-light mb-2">
       <nav className="navbar navbar-light container navbar-expand">
         <Link className="navbar-brand" to="/">
-          <img src={logo} width="60" alt="teamup Logo" />
+          <img src={logo} width="100" alt="teamup Logo" />
           {t('Home')}
         </Link>
         {links}

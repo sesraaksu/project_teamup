@@ -37,7 +37,7 @@ const TeamView = props => {
       <div className="card p-1">
         <div className="d-flex">
           <ProfileImageWithDefault image={image} width="32" height="32" className="rounded-circle m-1" />
-          <div className="flex-fill m-auto pl-2">
+          <div className="flex-fill m-auto ps-2">
             <Link to={`/user/${username}`} className="text-dark">
               <h6 className="d-inline">
                 {displayName}@{username}
@@ -52,9 +52,9 @@ const TeamView = props => {
             </button>
           )}
         </div>
-        <div className="pl-5">{content}</div>
+        <div className="ps-5">{content}</div>
         {fileAttachment && (
-          <div className="pl-5">
+          <div className="ps-5">
             {fileAttachment.fileType.startsWith('image') && (
               <img className="img-fluid" src={'images/attachments/' + fileAttachment.name} alt={content} />
             )}
