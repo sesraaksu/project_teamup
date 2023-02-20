@@ -21,13 +21,10 @@ const TeamFeed = () => {
   }
   const oldTeamPath = username ? `/api/1.0/users/${username}/teames/${lastTeamId}` : `/api/1.0/teames/${lastTeamId}`;
   const loadOldTeamesProgress = useApiProgress('get', oldTeamPath, true);
-
   const newTeamPath = username
     ? `/api/1.0/users/${username}/teames/${firstTeamId}?direction=after`
     : `/api/1.0/teames/${firstTeamId}?direction=after`;
-
   const loadNewTeamesProgress = useApiProgress('get', newTeamPath, true);
-
   useEffect(() => {
     const getCount = async () => {
       const response = await getNewTeamCount(firstTeamId, username);
@@ -57,7 +54,6 @@ const TeamFeed = () => {
       content: [...previousTeamPage.content, ...response.data.content]
     }));
   };
-
   const loadNewTeames = async () => {
     const response = await getNewTeames(firstTeamId, username);
     setTeamPage(previousTeamPage => ({
@@ -79,7 +75,6 @@ const TeamFeed = () => {
   if (content.length === 0) {
     return <div className="alert alert-secondary text-center">{initialTeamLoadProgress ? <Spinner /> : t('There are no teames')}</div>;
   }
-
   return (
     <div>
       {newTeamCount > 0 && (
@@ -92,7 +87,7 @@ const TeamFeed = () => {
         </div>
       )}
       {content.map(team => {
-        return <TeamView key={team.id} team={team} onDeleteHoax={onDeleteTeamSuccess} />;
+        return <TeamView key={team.id} team={team} onDeleteTeam={onDeleteTeamSuccess} />;
       })}
       {!last && (
         <div
